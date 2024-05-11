@@ -1,0 +1,9 @@
+numpy==1.26.4
+open3d==0.17.0
+openmesh==1.2.1
+potpourri3d==1.0.0
+scipy==1.13.0
+torch==2.1.0
+torch_cluster==1.6.3+pt21cu121
+torch_geometric==2.5.3
+tqdm==4.66.1
