@@ -122,3 +122,15 @@ To contribute to the project, please follow these guidelines:
 This project is licensed under the [MIT License](LICENSE).
 
 ## Contact
+
+We welcome your feedback and contributions! If you have any questions, issues, or suggestions, please don't hesitate to reach out.
+
+### 📧 Email
+- Primary Maintainer: [giuseppe.facchi@unimi.it](mailto:giuseppe.facchi@unimi.it)
+- [jacopo.burger@studenti.unimi.it](mailto:jacopo.burger@studenti.unimi.it)
+- [giorgio.blandano@studenti.unimi.it](mailto:giorgio.blandano@studenti.unimi.it)
+
+### 📝 Issues
+- Report bugs or request features using [GitHub Issues](https://github.com/CVIU-2S-SGCN/issues)
+
+We look forward to hearing from you!
