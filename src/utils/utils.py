@@ -25,6 +25,7 @@ class Center(BaseTransform):
         for store in data.node_stores:
             if hasattr(store, "pos") and hasattr(store, "landmarks"):
                 mean = store.pos.mean(dim=-2, keepdim=True)
+                store.translation = mean
                 store.pos = store.pos - mean
                 store.landmarks = store.landmarks - mean
         return data

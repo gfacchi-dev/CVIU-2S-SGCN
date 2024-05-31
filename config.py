@@ -9,16 +9,7 @@ from torch.optim import Adam
 class FACESCAPE_CONFIG:
     device: str = "cuda"
     n_resampling_points: int = 32768
-    model = {
-        "name": "Model_2S_SGCN",
-        "depth": 4,
-        "in_channels": 6,
-        "hidden_channels": 64,
-        "n_landmarks": 68,
-        "k_knn": 32,
-        "top_t": 7,
-        "distance_sigma": 0.03,
-    }
+    model = {"name": "Model_2S_SGCN", "depth": 4, "in_channels": 6, "hidden_channels": 64, "n_landmarks": 68, "k_knn": 32, "top_t": 7, "distance_sigma": 0.03, "gamma": 5}
     optimizer = {
         "class": Adam,
         "params": {

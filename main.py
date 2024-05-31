@@ -40,7 +40,7 @@ def main(do_refine=True):
             optimizer,
             criterion,
             top_t=cfg.model["top_t"],
-            distance_sigma=cfg.model["distance_sigma"],
+            sigma=cfg.model["distance_sigma"],
             device=device,
             K_KNN=cfg.model["k_knn"],
             NEUTRAL_MEAN_SCALE=dataset[0].mean_scale,
@@ -54,7 +54,7 @@ def main(do_refine=True):
             test_loader,
             criterion,
             top_t=cfg.model["top_t"],
-            distance_sigma=cfg.model["distance_sigma"],
+            sigma=cfg.model["distance_sigma"],
             device=device,
             K_KNN=cfg.model["k_knn"],
             NEUTRAL_MEAN_SCALE=dataset[0].mean_scale,
@@ -69,7 +69,17 @@ def main(do_refine=True):
     if do_refine:
         models_dir = os.path.dirname(models_path)
         refine_loader = DataLoader(test_dataset, batch_size=1, shuffle=False, num_workers=1)
-        refine(model, refine_loader=refine_loader, results_folder=models_dir, top_t=cfg.model["top_t"], device=device, K_KNN=cfg.model["k_knn"], n_resampling_points=cfg.n_resampling_points, log=True)
+        refine(
+            model,
+            refine_loader=refine_loader,
+            results_folder=models_dir,
+            top_t=cfg.model["top_t"],
+            sigma=cfg.model["distance_sigma"],
+            gamma=cfg.model["gamma"],
+            device=device,
+            K_KNN=cfg.model["k_knn"],
+            log=True,
+        )
 
 
 if __name__ == "__main__":

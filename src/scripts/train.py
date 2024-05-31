@@ -16,7 +16,7 @@ def log_train(writer, epoch, loss, mean, std, mean_of_top_t_distance, std_of_top
     writer.flush()
 
 
-def train(epoch, model, train_loader, optimizer, criterion, top_t=10, distance_sigma=0.03, device="cuda", K_KNN=32, NEUTRAL_MEAN_SCALE=1.0, log=False, writer=None):
+def train(epoch, model, train_loader, optimizer, criterion, top_t=10, sigma=0.03, device="cuda", K_KNN=32, NEUTRAL_MEAN_SCALE=1.0, log=False, writer=None):
     model.train()
     mean_gaus_distances = []
     std_gaus_distances = []
@@ -34,7 +34,7 @@ def train(epoch, model, train_loader, optimizer, criterion, top_t=10, distance_s
         batch = data.batch
         landmarks = data.landmarks
         super_indexes = data.super_indexes
-        heatmap_gts = gaussian_distance(data.distances, distance_sigma).to(device)
+        heatmap_gts = gaussian_distance(data.distances, sigma).to(device)
 
         num_super_indexes = super_indexes.shape[0] // batch_size
         local_edges = knn_graph(pos, k=K_KNN, batch=batch, loop=True)
